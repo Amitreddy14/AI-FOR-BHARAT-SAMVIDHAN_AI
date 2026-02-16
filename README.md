@@ -31,3 +31,34 @@ The platform serves four primary user personas:
 - **Tribal farmers**: Basic smartphone, intermittent 3G, distrust of officials
 - **Persons with disabilities**: Smartphone with screen reader, accessibility requirements
 - **NGO field workers**: Manage 50+ families, need bulk operations and dashboards
+
+### Technology Stack
+
+**Backend:**
+- **Framework**: FastAPI (Python 3.11+)
+- **Database**: PostgreSQL 15
+- **Cache/Queue**: Redis + Celery
+- **Storage**: AWS S3 / GCP Cloud Storage
+
+**AI/ML:**
+- **LLM**: Claude API
+- **Speech (STT/TTS)**: Bhashini API
+- **RAG**: LangChain + Pinecone
+- **OCR**: Tesseract + Google Vision API
+
+**Frontend:**
+- **Web**: Next.js 14 (React 18, TypeScript)
+- **Mobile**: React Native
+- **UI**: Tailwind CSS + shadcn/ui
+
+**Communication:**
+- **IVR**: Twilio / Exotel
+- **WhatsApp**: WhatsApp Business API
+- **SMS**: Twilio / AWS SNS
+
+**Infrastructure:**
+- **Cloud**: AWS / GCP
+- **Containers**: Docker + Kubernetes
+- **CI/CD**: GitHub Actions
+- **Monitoring**: Prometheus + Grafana
+- **Logging**: ELK Stack
