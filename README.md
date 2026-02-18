@@ -62,3 +62,60 @@ The platform serves four primary user personas:
 - **CI/CD**: GitHub Actions
 - **Monitoring**: Prometheus + Grafana
 - **Logging**: ELK Stack
+
+## Components and Interfaces
+
+### 1. Voice Service
+
+**Responsibility**: Handle voice interactions, speech-to-text, text-to-speech, language detection
+
+**Key Components:**
+- `VoiceController`: REST endpoints for voice interactions
+- `SpeechToTextAdapter`: Interface to Bhashini STT API
+- `TextToSpeechAdapter`: Interface to Bhashini TTS API
+- `LanguageDetector`: Identify spoken language from audio
+- `AudioProcessor`: Handle audio format conversion, noise reduction
+
+### 2. Discovery Service (Rights Discovery Engine)
+
+**Responsibility**: Match users to eligible schemes, retrieve scheme information via RAG
+
+**Key Components:**
+- `DiscoveryController`: REST endpoints for scheme discovery
+- `EligibilityMatcher`: Evaluate user profile against scheme criteria
+- `RAGPipeline`: Retrieve and generate scheme information
+- `SchemeRepository`: Database access for scheme data
+- `VectorSearchAdapter`: Interface to Pinecone vector database
+
+### 3. Application Service
+
+**Responsibility**: Guide form filling, extract data, generate PDFs, submit to government portals
+
+**Key Components:**
+- `ApplicationController`: REST endpoints for application management
+- `ConversationalFormFiller`: LLM-based form filling conversation
+- `DataExtractor`: Extract structured data from voice/text
+- `OCRProcessor`: Extract text from document images
+- `FormGenerator`: Generate PDF forms from templates
+- `GovernmentPortalAdapter`: Submit to DigiLocker, UMANG, etc.
+
+### 4. Tracking Service
+
+**Responsibility**: Monitor application status, scrape government portals, trigger escalations
+
+**Key Components:**
+- `TrackingController`: REST endpoints for status tracking
+- `StatusScraper`: Scrape government portals for status updates
+- `EscalationEngine`: Detect delays and trigger escalations
+- `GrievanceGenerator`: Generate and file grievance applications
+- `RTIGenerator`: Generate RTI applications
+
+### 5. Community Service
+
+**Responsibility**: Aggregate community statistics, detect patterns, enable peer support
+
+**Key Components:**
+- `CommunityController`: REST endpoints for community features
+- `StatisticsAggregator`: Calculate community metrics
+- `PatternDetector`: Detect corruption and anomalies
+- `FederatedLearningCoordinator`: Privacy-preserving model updates
