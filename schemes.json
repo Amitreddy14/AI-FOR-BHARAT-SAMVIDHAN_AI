@@ -1,0 +1,380 @@
+[
+  {
+    "id": "pm-kisan",
+    "name": "Pradhan Mantri Kisan Samman Nidhi",
+    "hindiName": "प्रधानमंत्री किसान सम्मान निधि",
+    "category": "Agriculture",
+    "benefit": "₹6000 annual income support to farmers",
+    "eligibility": "Small and marginal landholding farmers",
+    "keywords": ["pm kisan", "किसान सम्मान निधि", "kisan paisa"]
+  },
+  {
+    "id": "pmfby",
+    "name": "Pradhan Mantri Fasal Bima Yojana",
+    "hindiName": "प्रधानमंत्री फसल बीमा योजना",
+    "category": "Agriculture",
+    "benefit": "Crop insurance against natural calamities",
+    "eligibility": "Farmers growing notified crops",
+    "keywords": ["crop insurance", "फसल बीमा", "fasal bima"]
+  },
+  {
+    "id": "soil-health-card",
+    "name": "Soil Health Card Scheme",
+    "hindiName": "मृदा स्वास्थ्य कार्ड योजना",
+    "category": "Agriculture",
+    "benefit": "Soil testing and fertilizer recommendations",
+    "eligibility": "All farmers",
+    "keywords": ["soil card", "मृदा कार्ड", "soil test"]
+  },
+  {
+    "id": "pmksy",
+    "name": "Pradhan Mantri Krishi Sinchai Yojana",
+    "hindiName": "प्रधानमंत्री कृषि सिंचाई योजना",
+    "category": "Agriculture",
+    "benefit": "Improved irrigation and water efficiency",
+    "eligibility": "Farmers with agricultural land",
+    "keywords": ["irrigation scheme", "सिंचाई योजना", "krishi sinchai"]
+  },
+  {
+    "id": "kcc",
+    "name": "Kisan Credit Card",
+    "hindiName": "किसान क्रेडिट कार्ड",
+    "category": "Agriculture",
+    "benefit": "Easy credit for farming needs",
+    "eligibility": "Farmers and tenant farmers",
+    "keywords": ["kisan card", "किसान कार्ड", "farm loan"]
+  },
+  {
+    "id": "e-nam",
+    "name": "National Agriculture Market (e-NAM)",
+    "hindiName": "राष्ट्रीय कृषि बाजार",
+    "category": "Agriculture",
+    "benefit": "Online trading platform for farm produce",
+    "eligibility": "Registered farmers and traders",
+    "keywords": ["e nam", "राष्ट्रीय कृषि बाजार", "online mandi"]
+  },
+  {
+    "id": "paramparagat-krishi",
+    "name": "Paramparagat Krishi Vikas Yojana",
+    "hindiName": "परंपरागत कृषि विकास योजना",
+    "category": "Agriculture",
+    "benefit": "Support for organic farming",
+    "eligibility": "Organic farmers groups",
+    "keywords": ["organic farming", "जैविक खेती", "organic scheme"]
+  },
+
+  {
+    "id": "pm-scholarship",
+    "name": "Prime Minister Scholarship Scheme",
+    "hindiName": "प्रधानमंत्री छात्रवृत्ति योजना",
+    "category": "Students",
+    "benefit": "Scholarship for higher education",
+    "eligibility": "Dependent wards of armed forces",
+    "keywords": ["pm scholarship", "छात्रवृत्ति", "education scholarship"]
+  },
+  {
+    "id": "national-means-merit",
+    "name": "National Means-cum-Merit Scholarship",
+    "hindiName": "राष्ट्रीय साधन-सह-मेधा छात्रवृत्ति",
+    "category": "Students",
+    "benefit": "Financial aid to meritorious students",
+    "eligibility": "Students from low-income families",
+    "keywords": ["nmms", "मेधा छात्रवृत्ति", "merit scholarship"]
+  },
+  {
+    "id": "post-matric-sc",
+    "name": "Post Matric Scholarship for SC Students",
+    "hindiName": "एससी पोस्ट मैट्रिक छात्रवृत्ति",
+    "category": "Students",
+    "benefit": "Scholarship after Class 10",
+    "eligibility": "SC students",
+    "keywords": ["sc scholarship", "एससी छात्रवृत्ति", "post matric"]
+  },
+  {
+    "id": "beti-bachao-beti-padhao",
+    "name": "Beti Bachao Beti Padhao",
+    "hindiName": "बेटी बचाओ बेटी पढ़ाओ",
+    "category": "Women",
+    "benefit": "Support for girl child education",
+    "eligibility": "Girl children and families",
+    "keywords": ["beti bachao", "बेटी बचाओ", "girl child scheme"]
+  },
+  {
+    "id": "ujjwala",
+    "name": "Pradhan Mantri Ujjwala Yojana",
+    "hindiName": "प्रधानमंत्री उज्ज्वला योजना",
+    "category": "Women",
+    "benefit": "Free LPG connection",
+    "eligibility": "Women from BPL households",
+    "keywords": ["ujjwala", "उज्ज्वला", "gas connection"]
+  },
+
+  {
+    "id": "mahila-e-haat",
+    "name": "Mahila e-Haat",
+    "hindiName": "महिला ई-हाट",
+    "category": "Women",
+    "benefit": "Online platform for women entrepreneurs to sell products",
+    "eligibility": "Women entrepreneurs and SHGs",
+    "keywords": ["mahila ehaat", "महिला ई हाट", "women marketplace"]
+  },
+  {
+    "id": "one-stop-centre",
+    "name": "One Stop Centre Scheme",
+    "hindiName": "वन स्टॉप सेंटर योजना",
+    "category": "Women",
+    "benefit": "Integrated support for women affected by violence",
+    "eligibility": "Women facing violence",
+    "keywords": ["one stop centre", "वन स्टॉप सेंटर", "women safety"]
+  },
+  {
+    "id": "working-women-hostel",
+    "name": "Working Women Hostel Scheme",
+    "hindiName": "कामकाजी महिला छात्रावास योजना",
+    "category": "Women",
+    "benefit": "Safe accommodation for working women",
+    "eligibility": "Working women away from home",
+    "keywords": ["women hostel", "कामकाजी महिला", "working women housing"]
+  },
+  {
+    "id": "pm-matru-vandana",
+    "name": "Pradhan Mantri Matru Vandana Yojana",
+    "hindiName": "प्रधानमंत्री मातृ वंदना योजना",
+    "category": "Women",
+    "benefit": "Cash incentive for pregnant women",
+    "eligibility": "Pregnant and lactating women",
+    "keywords": ["matru vandana", "मातृ वंदना", "pregnancy benefit"]
+  },
+  
+  {
+    "id": "ayushman-bharat",
+    "name": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana",
+    "hindiName": "आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना",
+    "category": "Health",
+    "benefit": "₹5 lakh health insurance per family",
+    "eligibility": "Poor and vulnerable families",
+    "keywords": ["ayushman", "आयुष्मान", "health card"]
+  },
+  {
+    "id": "janani-suraksha",
+    "name": "Janani Suraksha Yojana",
+    "hindiName": "जननी सुरक्षा योजना",
+    "category": "Health",
+    "benefit": "Cash assistance for institutional delivery",
+    "eligibility": "Pregnant women below poverty line",
+    "keywords": ["jsy", "जननी सुरक्षा", "delivery scheme"]
+  },
+  {
+    "id": "poshan-abhiyaan",
+    "name": "POSHAN Abhiyaan",
+    "hindiName": "पोषण अभियान",
+    "category": "Health",
+    "benefit": "Nutrition support for women and children",
+    "eligibility": "Children, pregnant women, lactating mothers",
+    "keywords": ["poshan", "पोषण", "nutrition scheme"]
+  },
+  {
+    "id": "national-health-mission",
+    "name": "National Health Mission",
+    "hindiName": "राष्ट्रीय स्वास्थ्य मिशन",
+    "category": "Health",
+    "benefit": "Strengthening public healthcare services",
+    "eligibility": "All citizens",
+    "keywords": ["nhm", "राष्ट्रीय स्वास्थ्य", "public health"]
+  },
+  {
+    "id": "pmjay-golden-card",
+    "name": "PM-JAY Golden Card",
+    "hindiName": "पीएम-जेएवाई गोल्डन कार्ड",
+    "category": "Health",
+    "benefit": "Cashless hospital treatment",
+    "eligibility": "Ayushman Bharat beneficiaries",
+    "keywords": ["golden card", "गोल्डन कार्ड", "ayushman card"]
+  },
+  
+  {
+    "id": "pmay-urban",
+    "name": "Pradhan Mantri Awas Yojana – Urban",
+    "hindiName": "प्रधानमंत्री आवास योजना – शहरी",
+    "category": "Housing",
+    "benefit": "Affordable housing for urban poor",
+    "eligibility": "EWS, LIG, MIG families",
+    "keywords": ["pmay urban", "शहरी आवास", "home scheme"]
+  },
+  {
+    "id": "pmay-rural",
+    "name": "Pradhan Mantri Awas Yojana – Gramin",
+    "hindiName": "प्रधानमंत्री आवास योजना – ग्रामीण",
+    "category": "Housing",
+    "benefit": "Financial assistance for rural housing",
+    "eligibility": "Homeless rural families",
+    "keywords": ["pmay gramin", "ग्रामीण आवास", "rural house"]
+  },
+  {
+    "id": "credit-linked-subsidy",
+    "name": "Credit Linked Subsidy Scheme",
+    "hindiName": "क्रेडिट लिंक्ड सब्सिडी योजना",
+    "category": "Housing",
+    "benefit": "Interest subsidy on home loans",
+    "eligibility": "First-time home buyers",
+    "keywords": ["clss", "होम लोन सब्सिडी", "interest subsidy"]
+  },
+  {
+    "id": "rental-housing-complex",
+    "name": "Affordable Rental Housing Complex",
+    "hindiName": "किफायती किराया आवास परिसर",
+    "category": "Housing",
+    "benefit": "Rental housing for urban migrants",
+    "eligibility": "Urban migrants and workers",
+    "keywords": ["rental housing", "किराया आवास", "urban migrants"]
+  },
+
+  {
+    "id": "saubhagya",
+    "name": "Pradhan Mantri Sahaj Bijli Har Ghar Yojana",
+    "hindiName": "प्रधानमंत्री सहज बिजली हर घर योजना",
+    "category": "Rural",
+    "benefit": "Electricity connection to rural households",
+    "eligibility": "Rural households without electricity",
+    "keywords": ["saubhagya", "सौभाग्य", "bijli connection"]
+  },
+  {
+    "id": "jal-jeevan-mission",
+    "name": "Jal Jeevan Mission",
+    "hindiName": "जल जीवन मिशन",
+    "category": "Rural",
+    "benefit": "Tap water connection to rural homes",
+    "eligibility": "Rural households",
+    "keywords": ["jal jeevan", "नल जल योजना", "tap water"]
+  },
+  {
+    "id": "shyama-prasad-mukherji-rurban",
+    "name": "Shyama Prasad Mukherji Rurban Mission",
+    "hindiName": "श्यामा प्रसाद मुखर्जी रुर्बन मिशन",
+    "category": "Rural",
+    "benefit": "Urban facilities in rural clusters",
+    "eligibility": "Identified rural clusters",
+    "keywords": ["rurban mission", "रुर्बन", "rural urban"]
+  },
+  {
+    "id": "deen-dayal-antyodaya-nrlm",
+    "name": "Deen Dayal Antyodaya Yojana – NRLM",
+    "hindiName": "दीन दयाल अंत्योदय योजना – एनआरएलएम",
+    "category": "Rural",
+    "benefit": "Livelihood support to rural SHGs",
+    "eligibility": "Rural women SHGs",
+    "keywords": ["nrlm", "अंत्योदय", "self help group"]
+  },
+  {
+    "id": "mgnrega",
+    "name": "Mahatma Gandhi National Rural Employment Guarantee Act",
+    "hindiName": "महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार गारंटी योजना",
+    "category": "Employment",
+    "benefit": "100 days guaranteed wage employment",
+    "eligibility": "Adult rural citizens",
+    "keywords": ["mgnrega", "मनरेगा", "job card"]
+  },
+  {
+    "id": "pmgky",
+    "name": "Pradhan Mantri Garib Kalyan Yojana",
+    "hindiName": "प्रधानमंत्री गरीब कल्याण योजना",
+    "category": "Employment",
+    "benefit": "Employment and food security support",
+    "eligibility": "Poor households",
+    "keywords": ["garib kalyan", "गरीब कल्याण", "employment aid"]
+  },
+  {
+    "id": "pm-kaushal-vikas",
+    "name": "Pradhan Mantri Kaushal Vikas Yojana",
+    "hindiName": "प्रधानमंत्री कौशल विकास योजना",
+    "category": "Employment",
+    "benefit": "Free skill training and certification",
+    "eligibility": "Youth seeking skills",
+    "keywords": ["pmkvy", "कौशल विकास", "skill training"]
+  },
+  {
+    "id": "day-nulm",
+    "name": "Deendayal Antyodaya Yojana – NULM",
+    "hindiName": "दीनदयाल अंत्योदय योजना – एनयूएलएम",
+    "category": "Employment",
+    "benefit": "Urban livelihood and employment support",
+    "eligibility": "Urban poor",
+    "keywords": ["nulm", "शहरी रोजगार", "urban livelihood"]
+  },
+
+  {
+    "id": "mudra-yojana",
+    "name": "Pradhan Mantri Mudra Yojana",
+    "hindiName": "प्रधानमंत्री मुद्रा योजना",
+    "category": "Business",
+    "benefit": "Collateral-free loans to small businesses",
+    "eligibility": "Micro and small entrepreneurs",
+    "keywords": ["mudra loan", "मुद्रा", "business loan"]
+  },
+  {
+    "id": "startup-india",
+    "name": "Startup India",
+    "hindiName": "स्टार्टअप इंडिया",
+    "category": "Business",
+    "benefit": "Tax benefits and funding support for startups",
+    "eligibility": "Registered startups",
+    "keywords": ["startup india", "स्टार्टअप", "new business"]
+  },
+  {
+    "id": "stand-up-india",
+    "name": "Stand-Up India",
+    "hindiName": "स्टैंड-अप इंडिया",
+    "category": "Business",
+    "benefit": "Loans for SC/ST and women entrepreneurs",
+    "eligibility": "SC/ST and women entrepreneurs",
+    "keywords": ["standup india", "स्टैंडअप", "entrepreneur loan"]
+  },
+  {
+    "id": "pmfme",
+    "name": "PM Formalisation of Micro Food Enterprises",
+    "hindiName": "सूक्ष्म खाद्य उद्यम औपचारिककरण योजना",
+    "category": "Business",
+    "benefit": "Support for food processing units",
+    "eligibility": "Micro food entrepreneurs",
+    "keywords": ["pmfme", "food enterprise", "food business"]
+  },
+  
+  {
+    "id": "jan-dhan",
+    "name": "Pradhan Mantri Jan Dhan Yojana",
+    "hindiName": "प्रधानमंत्री जन धन योजना",
+    "category": "Financial",
+    "benefit": "Zero balance bank account with insurance",
+    "eligibility": "All Indian citizens",
+    "keywords": ["jan dhan", "जन धन", "bank account"]
+  },
+  {
+    "id": "atal-pension",
+    "name": "Atal Pension Yojana",
+    "hindiName": "अटल पेंशन योजना",
+    "category": "Financial",
+    "benefit": "Monthly pension after 60 years",
+    "eligibility": "Workers in unorganised sector",
+    "keywords": ["atal pension", "अटल पेंशन", "retirement pension"]
+  },
+  {
+    "id": "pmjjby",
+    "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+    "hindiName": "प्रधानमंत्री जीवन ज्योति बीमा योजना",
+    "category": "Financial",
+    "benefit": "Life insurance cover of ₹2 lakh",
+    "eligibility": "Bank account holders",
+    "keywords": ["pmjjby", "जीवन ज्योति बीमा", "life insurance"]
+  },
+  {
+    "id": "pmsby",
+    "name": "Pradhan Mantri Suraksha Bima Yojana",
+    "hindiName": "प्रधानमंत्री सुरक्षा बीमा योजना",
+    "category": "Financial",
+    "benefit": "Accidental insurance cover of ₹2 lakh",
+    "eligibility": "Bank account holders",
+    "keywords": ["pmsby", "सुरक्षा बीमा", "accident insurance"]
+  }
+
+
+]
