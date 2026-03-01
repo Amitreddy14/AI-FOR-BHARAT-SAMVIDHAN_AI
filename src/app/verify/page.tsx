@@ -1,10 +1,10 @@
 'use client';
 
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import LoadingIndicator from "@/components/LoadingIndicator";
 
-export default function VerifyPage() {
+function VerifyContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
@@ -13,9 +13,15 @@ export default function VerifyPage() {
   const [valid, setValid] = useState(false);
 
   useEffect(() => {
-    if (!id) return;
+    if (!id) {
+      setLoading(false);
+      setValid(false);
+      return;
+    }
 
-    fetch(`https://yhccfdamhd.execute-api.us-east-1.amazonaws.com/verify?id=${id}`)
+    fetch(
+      `https://yhccfdamhd.execute-api.us-east-1.amazonaws.com/verify?id=${id}`
+    )
       .then(res => res.json())
       .then(data => {
         if (data.status === "VALID") {
@@ -27,19 +33,15 @@ export default function VerifyPage() {
       })
       .catch(() => setValid(false))
       .finally(() => setLoading(false));
-
-  }, [id]);   
-
-  /*
-  if (loading) return <p className="p-10">Verifying...</p>;*/
+  }, [id]);
 
   if (loading) {
-  return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50">
-      <LoadingIndicator text="आपका आवेदन सत्यापित किया जा रहा है..." />
-    </main>
-  );
-}
+    return (
+      <main className="min-h-screen flex items-center justify-center bg-gray-50">
+        <LoadingIndicator text="आपका आवेदन सत्यापित किया जा रहा है..." />
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
@@ -71,5 +73,19 @@ export default function VerifyPage() {
 
       </div>
     </main>
+  );
+}
+
+export default function VerifyPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen flex items-center justify-center bg-gray-50">
+          <LoadingIndicator text="Loading verification page..." />
+        </main>
+      }
+    >
+      <VerifyContent />
+    </Suspense>
   );
 }
