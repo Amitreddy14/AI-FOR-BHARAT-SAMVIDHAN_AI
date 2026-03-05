@@ -9,12 +9,8 @@ import { speakText } from "@/lib/speak";
 import { detectSchemeFromText } from "@/lib/detect";
 import ManualApply from "@/components/ManualApply";
 import ReactMarkdown from "react-markdown";
-<<<<<<< HEAD
 import "@/lib/amplify";
 import { getCurrentUser, signOut, fetchUserAttributes } from "aws-amplify/auth";
-=======
- const API = process.env.NEXT_PUBLIC_API_BASE_URL;
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
 
 export default function Home() {
   const router = useRouter();
@@ -25,7 +21,6 @@ export default function Home() {
   const [showSchemes, setShowSchemes] = useState(false);
   const [loading, setLoading] = useState(false);
   const [pendingScheme, setPendingScheme] = useState<string | null>(null);
-<<<<<<< HEAD
   const [authChecked, setAuthChecked] = useState(false);
   const [userName, setUserName] = useState("");
 
@@ -37,18 +32,10 @@ export default function Home() {
   /* 🔹 FETCH ALL SCHEMES */
   useEffect(() => {
     fetch("/api/schemes")
-=======
-
-  /* 🔹 FETCH ALL SCHEMES */
-  useEffect(() => {
-    
-      fetch(`${API}/schemes`)
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
       .then(res => res.json())
       .then(data => setSchemes(data));
   }, []);
 
-<<<<<<< HEAD
   /*use-effect for login page*/
   useEffect(() => {
     const checkAuth = async () => {
@@ -78,20 +65,13 @@ export default function Home() {
     );
   }
 
-=======
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
   const handleVoice = async (text: string) => {
     setUserText(text);
     setLoading(true);
 
     try {
       /* 🧠 NLU */
-<<<<<<< HEAD
       const nluRes = await fetch("/api/nlu", {
-=======
-        //const API = process.env.NEXT_PUBLIC_API_BASE_URL;
-      const nluRes = await fetch(`${API}/nlu`, {
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text }),
@@ -129,11 +109,7 @@ export default function Home() {
       }
 
       /* 🗨️ CHAT */
-<<<<<<< HEAD
       const chatRes = await fetch("/api/chat", {
-=======
-      const chatRes = await fetch(`${API}/chat`, {
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text }),
@@ -150,7 +126,6 @@ export default function Home() {
   };
 
   return (
-<<<<<<< HEAD
     <main className="min-h-screen flex flex-col items-center gap-4 md:gap-6 bg-gradient-to-br from-orange-50 via-white to-green-50 p-2 sm:p-4 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -170,7 +145,7 @@ export default function Home() {
 
       {/* LEFT SIDE TITLE */}
       <div className="flex items-center gap-2">
-        <span className="text-3xl"> ꧁⚖️꧂</span>
+        <span className="text-3xl">⚖️</span>
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 via-blue-600 to-green-600 bg-clip-text text-transparent">
           SamvidhanAI
         </h1>
@@ -194,31 +169,11 @@ export default function Home() {
         </Link>
         <button
           onClick={handleLogout}
-          className="px-3 py-1.5 sm:px-5 sm:py-2 text-sm sm:text-base bg-gradient-to-r from-green-600 to-green-700 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+          className="px-3 py-1.5 sm:px-5 sm:py-2 text-sm sm:text-base bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
         >
-          🚪 Logout/बहार निकले  
-          {/* ALL DONE  */}
+          🚪 Logout/बहार निकले
         </button>
       </div>
-=======
-    <main className="min-h-screen flex flex-col items-center gap-6 bg-red-50 p-4">
-      {/* ✅ HEADER START */}
-    <div className="w-full max-w-6xl flex justify-between items-center mt-4">
-
-      {/* LEFT SIDE TITLE */}
-      <h1 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-        ⚖️ SamvidhanAI
-      </h1>
-
-      {/* RIGHT SIDE TRACK BUTTON */}
-      <Link
-        href="/track"
-        className="px-5 py-2 bg-red-600 text-white rounded-full shadow-md hover:bg-red-700 transition duration-300"
-      >
-        📄 Track Applications
-      </Link>
-
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
     </div>
 
 
@@ -227,61 +182,28 @@ export default function Home() {
 
 
 
-      {/* {userText && <div className="bg-blue-100 p-3 rounded w-full max-w-md">
-        <b>आप:</b> {userText}
-      </div>} */}
       {userText && (
-<<<<<<< HEAD
   <div className="w-full max-w-2xl flex justify-end px-2 relative z-10">
     <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 sm:p-4 rounded-2xl shadow-lg max-w-lg text-sm sm:text-base">
       <span className="text-xs sm:text-sm opacity-80 font-semibold">आप</span>
-=======
-  <div className="w-full max-w-2xl flex justify-end">
-    <div className="bg-blue-600 text-white p-4 rounded-2xl shadow-md max-w-lg">
-      <span className="text-sm opacity-80">आप</span>
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
       <p className="mt-1">{userText}</p>
     </div>
   </div>
 )}
 
-<<<<<<< HEAD
 {aiText && (
   <div className="w-full max-w-2xl bg-white/80 backdrop-blur-md shadow-xl rounded-2xl p-4 sm:p-6 border-2 border-orange-200 mx-2 relative z-10">
     <div className="flex items-center gap-2 mb-4">
       <div className="bg-gradient-to-r from-orange-500 to-green-600 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
-=======
-
-
-{/* 
-      {aiText && <div className="bg-white p-3 rounded w-full max-w-md">
-        <b>SamvidhanAI:</b> {aiText}
-      </div>} */}
-      
-
-{aiText && (
-  <div className="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-6 border border-gray-200">
-    
-    <div className="flex items-center gap-2 mb-4">
-      <div className="bg-red-600 text-white px-3 py-1 rounded-full text-sm">
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
         🏛 SamvidhanAI
       </div>
     </div>
 
-<<<<<<< HEAD
     <div className="prose prose-sm max-w-none text-gray-800 text-sm sm:text-base">
       <ReactMarkdown
         components={{
           h1: ({node, ...props}) => <h2 className="text-lg sm:text-xl font-bold text-orange-700 mt-4" {...props} />,
           h2: ({node, ...props}) => <h3 className="text-base sm:text-lg font-semibold text-green-600 mt-3" {...props} />,
-=======
-    <div className="prose prose-sm max-w-none text-gray-800">
-      <ReactMarkdown
-        components={{
-          h1: ({node, ...props}) => <h2 className="text-xl font-bold text-red-700 mt-4" {...props} />,
-          h2: ({node, ...props}) => <h3 className="text-lg font-semibold text-red-600 mt-3" {...props} />,
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
           strong: ({node, ...props}) => <span className="font-semibold text-black" {...props} />,
           li: ({node, ...props}) => <li className="ml-4 list-disc mb-1" {...props} />,
         }}
@@ -289,7 +211,6 @@ export default function Home() {
         {aiText.replace(/\*\*/g, "")}
       </ReactMarkdown>
     </div>
-<<<<<<< HEAD
   </div>
 )}
 
@@ -309,35 +230,7 @@ export default function Home() {
           animation-delay: 4s;
         }
       `}</style>
-=======
 
-  </div>
-)}
-
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
-
-
-
-
-<<<<<<< HEAD
-
-=======
-      {/* {showSchemes && (
-        <div className="grid gap-4 w-full max-w-md">
-          {schemes.slice(0, 2).map(s => (
-            <SchemeCard
-              key={s.id}
-              {...s}
-              onApply={() => router.push(`/apply/${s.id}`)}
-            />
-          ))}
-        </div>
-      )} */}
-
-      {/* <Link href="/track" className="px-6 py-3 bg-pink-500 text-white rounded-lg hover:bg-purple-500 transition duration-300">
-        📄 Track Applications
-      </Link> */}
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
     </main>
   );
 }

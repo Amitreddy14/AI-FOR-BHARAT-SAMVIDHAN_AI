@@ -10,10 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.1000.0",
-<<<<<<< HEAD
     "aws-amplify": "^6.16.2",
-=======
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
     "lucide-react": "^0.575.0",
     "next": "16.1.6",
     "react": "19.2.3",

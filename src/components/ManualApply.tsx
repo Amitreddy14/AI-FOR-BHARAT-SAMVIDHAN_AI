@@ -18,23 +18,14 @@ export default function ManualApply() {
   const [selected, setSelected] = useState("");
   const [showSection, setShowSection] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-<<<<<<< HEAD
   const [loading, setLoading] = useState(false);
-=======
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   /* 🔹 Fetch schemes */
   useEffect(() => {
-<<<<<<< HEAD
     setLoading(true);
     fetch("/api/schemes")
-=======
-    const API = process.env.NEXT_PUBLIC_API_BASE_URL;
-fetch(`${API}/schemes`)
-
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
@@ -42,12 +33,8 @@ fetch(`${API}/schemes`)
           setFiltered(data);
         }
       })
-<<<<<<< HEAD
       .catch(err => console.error("Scheme load failed", err))
       .finally(() => setLoading(false));
-=======
-      .catch(err => console.error("Scheme load failed", err));
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
   }, []);
 
   /* 🔎 Filter schemes */
@@ -88,11 +75,7 @@ fetch(`${API}/schemes`)
         onClick={() => setShowSection(!showSection)}
         className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-3 rounded-xl font-semibold shadow-md hover:scale-105 transition"
       >
-<<<<<<< HEAD
         📝 Apply Manually/हाथ से आवेदन करना
-=======
-        📝 Apply Manually
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
       </button>
 
       {showSection && (
@@ -138,7 +121,6 @@ fetch(`${API}/schemes`)
             {dropdownOpen && (
               <div className="absolute z-30 w-full mt-2 max-h-60 overflow-y-auto rounded-xl shadow-xl border bg-white">
 
-<<<<<<< HEAD
                 {loading && (
                   <div className="p-4 text-center">
                     <div className="w-6 h-6 border-2 border-green-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
@@ -147,19 +129,12 @@ fetch(`${API}/schemes`)
                 )}
 
                 {!loading && filtered.length === 0 && (
-=======
-                {filtered.length === 0 && (
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
                   <div className="p-3 text-sm text-gray-500">
                     No schemes found
                   </div>
                 )}
 
-<<<<<<< HEAD
                 {!loading && filtered.map((scheme) => (
-=======
-                {filtered.map((scheme) => (
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
                   <div
                     key={scheme.id}
                     onClick={() => {
@@ -186,11 +161,7 @@ fetch(`${API}/schemes`)
             onClick={handleApply}
             className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 rounded-xl font-semibold shadow-md hover:scale-105 transition"
           >
-<<<<<<< HEAD
             🚀 Continue to Application/आवेदन जारी रखें
-=======
-            🚀 Continue to Application
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
           </button>
 
         </div>

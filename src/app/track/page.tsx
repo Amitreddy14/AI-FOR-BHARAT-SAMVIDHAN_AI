@@ -3,11 +3,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import LoadingIndicator from "@/components/LoadingIndicator";
-<<<<<<< HEAD
 import { getCurrentUserId } from "@/lib/auth"; // 🔥 ADD test
 import { getCurrentUser } from "aws-amplify/auth";//add test
-=======
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
 
 type Application = {
   id: string;
@@ -16,11 +13,7 @@ type Application = {
   submittedAt: string;
   expectedDays: number;
   progress: number;
-<<<<<<< HEAD
   pdfUrl?: string;
-=======
-  pdfUrl?: string; // ✅ Added for PDF
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
 };
 
 export default function TrackPage() {
@@ -28,7 +21,6 @@ export default function TrackPage() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-<<<<<<< HEAD
 
 /*aadded for test*/
 useEffect(() => {
@@ -50,13 +42,6 @@ useEffect(() => {
 
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/applications?userId=${userId}`
-=======
-  useEffect(() => {
-    const fetchApplications = async () => {
-      try {
-        const res = await fetch(
-          "https://yhccfdamhd.execute-api.us-east-1.amazonaws.com/applications"
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
         );
 
         const data = await res.json();
@@ -84,7 +69,6 @@ useEffect(() => {
   }, []);
 
   if (loading) {
-<<<<<<< HEAD
     return (
       <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-green-50">
         <div className="flex flex-col items-center gap-4">
@@ -122,32 +106,12 @@ useEffect(() => {
         <button
           onClick={() => router.push("/")}
           className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-1"
-=======
-  return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50"> 
-      <LoadingIndicator text="आपका आवेदन सत्यापित किया जा रहा है..." />
-    </main>
-  );
-}
-
-  return (
-    <main className="min-h-screen bg-gray-50 p-4">
-
-      {/* 🔥 Top Header with Home Button */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">📄 Track Applications</h1>
-
-        <button
-          onClick={() => router.push("/")}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
         >
           🏠 Home
         </button>
       </div>
 
       {applications.length === 0 && (
-<<<<<<< HEAD
         <div className="bg-white/70 backdrop-blur-md p-8 rounded-2xl shadow-lg text-center border border-orange-100 relative z-10">
           <div className="text-6xl mb-4">📭</div>
           <p className="text-gray-600 text-lg">कोई आवेदन नहीं मिला / No applications found.</p>
@@ -172,35 +136,10 @@ useEffect(() => {
               </div>
 
               <span className="text-xs bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-800 px-3 py-1.5 rounded-full font-semibold border border-yellow-300">
-=======
-        <p className="text-gray-500">No applications found.</p>
-      )}
-
-      <div className="space-y-4">
-        {applications.map((app) => (
-          <div
-            key={app.id}
-            className="bg-white p-4 rounded-lg shadow"
-          >
-            {/* Header */}
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="font-semibold text-lg">{app.scheme}</p>
-                <p className="text-sm text-gray-600">
-                  ID: {app.id}
-                </p>
-                <p className="text-xs text-gray-500">
-                  Submitted on: {app.submittedAt}
-                </p>
-              </div>
-
-              <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
                 {app.status}
               </span>
             </div>
 
-<<<<<<< HEAD
             <div className="mt-4">
               <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                 <div
@@ -248,43 +187,6 @@ useEffect(() => {
           animation-delay: 2s;
         }
       `}</style>
-=======
-            {/* Progress Bar */}
-            <div className="mt-4">
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div
-                  className="bg-green-500 h-2 rounded-full transition-all"
-                  style={{ width: `${app.progress}%` }}
-                />
-              </div>
-              <p className="text-xs text-gray-500 mt-1">
-                {app.progress}% complete • Est. {app.expectedDays} days
-              </p>
-            </div>
-
-            {/* ✅ PDF BUTTON ADDED HERE */}
-            {app.pdfUrl && (
-              <a
-                href={app.pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block text-sm bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 transition"
-              >
-                📄 View Official PDF
-              </a>
-            )}
-
-            {/* Escalation Logic */}
-            {app.progress < 50 && app.expectedDays > 30 && (
-              <button className="mt-4 text-sm bg-red-100 text-red-700 px-3 py-1 rounded hover:bg-red-200">
-                ⚠️ Escalate Application
-              </button>
-            )}
-
-          </div>
-        ))}
-      </div>
->>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
     </main>
   );
 }
