@@ -164,7 +164,7 @@ export default function LoginPage() {
         </div>
 
         <div className="text-center mb-6">
-          <div className="text-5xl mb-3">⚖️</div>
+          <div className="text-5xl mb-3">✧༺⚖️༻✧</div>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 via-blue-600 to-green-600 bg-clip-text text-transparent">
             SamvidhanAI
           </h1>

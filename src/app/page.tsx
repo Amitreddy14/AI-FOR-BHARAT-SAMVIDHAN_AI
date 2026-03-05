@@ -145,7 +145,7 @@ export default function Home() {
 
       {/* LEFT SIDE TITLE */}
       <div className="flex items-center gap-2">
-        <span className="text-3xl">⚖️</span>
+        <span className="text-3xl">⚖️ </span>
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 via-blue-600 to-green-600 bg-clip-text text-transparent">
           SamvidhanAI
         </h1>
@@ -169,7 +169,7 @@ export default function Home() {
         </Link>
         <button
           onClick={handleLogout}
-          className="px-3 py-1.5 sm:px-5 sm:py-2 text-sm sm:text-base bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+          className="px-3 py-1.5 sm:px-5 sm:py-2 text-sm sm:text-base bg-gradient-to-r from-green-600 to-green-700 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
         >
           🚪 Logout/बहार निकले
         </button>
