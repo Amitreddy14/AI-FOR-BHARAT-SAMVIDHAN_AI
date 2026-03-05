@@ -4,11 +4,17 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import VoiceInput from "@/components/VoiceInput";
 import { speakText } from "@/lib/speak";
+<<<<<<< HEAD
 import { getCurrentUserId } from "@/lib/auth";
 type FormField = "name" | "age" | "state" | "occupation";
 type Step = FormField | "documents";
 import { getCurrentUser } from "aws-amplify/auth";   /*import new added for test*/
 
+=======
+
+type FormField = "name" | "age" | "state" | "occupation";
+type Step = FormField | "documents";
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
 
 const FIELD_PROMPTS: Record<Step, string> = {
   name: "कृपया अपना पूरा नाम बताइए",
@@ -45,6 +51,7 @@ export default function ApplyPage() {
   const [submitting, setSubmitting] = useState(false);
   const [applicationId, setApplicationId] = useState<string | null>(null);
 
+<<<<<<< HEAD
 /*added for login test*/
 useEffect(() => {
   const checkAuth = async () => {
@@ -66,6 +73,15 @@ useEffect(() => {
       try {
         const res = await fetch(
           `/api/schemes?search=${encodeURIComponent(String(schemeId))}`
+=======
+  /* 🔹 FETCH SCHEME */
+  useEffect(() => {
+     const API = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const fetchScheme = async () => {
+      try {
+        const res = await fetch(
+          `${API}/schemes?search=${encodeURIComponent(String(schemeId))}`
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
         );
         const data = await res.json();
         const matched = data.find((s: any) => s.id === schemeId);
@@ -105,6 +121,7 @@ useEffect(() => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+<<<<<<< HEAD
     // Check file size (max 2MB)
     if (file.size > 2 * 1024 * 1024) {
       alert("फाइल बहुत बड़ी है! कृपया 2MB से छोटी फाइल अपलोड करें / File too large! Please upload file smaller than 2MB");
@@ -112,6 +129,8 @@ useEffect(() => {
       return;
     }
 
+=======
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
     const reader = new FileReader();
     reader.onloadend = () => {
       setDocuments(prev => ({
@@ -154,13 +173,17 @@ useEffect(() => {
     return Object.keys(newErrors).length === 0;
   };
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
   /* 🚀 Submit */
   const handleSubmit = async () => {
     if (!validateForm()) return;
 
     setSubmitting(true);
+<<<<<<< HEAD
 /* applied <tests></tests>*/
 const userId = await getCurrentUserId();
 
@@ -168,12 +191,21 @@ const userId = await getCurrentUserId();
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/apply`,
+=======
+
+    try {
+      const res = await fetch(
+        "https://yhccfdamhd.execute-api.us-east-1.amazonaws.com/apply",
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             schemeId: scheme.id,
+<<<<<<< HEAD
             userId,   /*  changed user-id*/ 
+=======
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
             ...form,
             documents,
           }),
@@ -182,6 +214,7 @@ const userId = await getCurrentUserId();
 
       const data = await res.json();
 
+<<<<<<< HEAD
       if (!res.ok) {
         console.error('API Error:', data);
         alert(`Error: ${data.message || 'Failed to submit application'}`);
@@ -194,6 +227,13 @@ const userId = await getCurrentUserId();
     } catch (error) {
       console.error('Submit error:', error);
       alert(`Something went wrong: ${error}`);
+=======
+      speakText("आपका आवेदन सफलतापूर्वक जमा हो गया है", "hi-IN");
+      setApplicationId(data.id);
+
+    } catch {
+      alert("Something went wrong");
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
     } finally {
       setSubmitting(false);
     }
@@ -214,6 +254,7 @@ const userId = await getCurrentUserId();
   if (!scheme) return <p className="p-4">Scheme not found</p>;
 
   return (
+<<<<<<< HEAD
     <main className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-green-50 p-4 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -227,19 +268,36 @@ const userId = await getCurrentUserId();
         <button
           onClick={() => router.push("/")}
           className="px-4 py-2 bg-white/70 backdrop-blur-md shadow-lg rounded-full hover:scale-105 transition text-sm font-medium border border-orange-100"
+=======
+    <main className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-white p-4">
+
+      {/* 🔹 Top Navigation */}
+      <div className="max-w-2xl mx-auto flex justify-between items-center mb-6">
+        <button
+          onClick={() => router.push("/")}
+          className="px-4 py-2 bg-white shadow rounded-lg hover:bg-gray-100 text-sm font-medium"
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
         >
           🏠 Home
         </button>
 
         <button
           onClick={() => router.push("/track")}
+<<<<<<< HEAD
           className="px-4 py-2 bg-gradient-to-r from-orange-500 to-green-600 text-white rounded-full shadow-lg hover:scale-105 transition text-sm font-medium"
+=======
+          className="px-4 py-2 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg shadow hover:scale-105 transition text-sm font-medium"
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
         >
           📄 Track Applications
         </button>
       </div>
 
+<<<<<<< HEAD
       <div className="max-w-2xl mx-auto bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border-2 border-orange-100 relative z-10">
+=======
+      <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-xl border border-green-100">
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
 
         {/* 🏛 Scheme Header */}
         <div className="border-b pb-4 mb-6">
@@ -298,6 +356,7 @@ const userId = await getCurrentUserId();
               📑 Government Authorized Documents *
             </h2>
 
+<<<<<<< HEAD
             <div className="bg-yellow-50 border border-yellow-300 rounded-lg p-3 mb-4">
               <p className="text-xs text-yellow-800">
                 ⚠️ <span className="font-semibold">फ़ाइल साइज़ सीमा / File Size Limit:</span> Maximum 2MB per file
@@ -307,6 +366,8 @@ const userId = await getCurrentUserId();
               </p>
             </div>
 
+=======
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
             {errors.documents && (
               <p className="text-xs text-red-500 mb-3">
                 {errors.documents}
@@ -396,6 +457,7 @@ const userId = await getCurrentUserId();
         </div>
       )}
 
+<<<<<<< HEAD
       <style jsx>{`
         @keyframes blob {
           0%, 100% { transform: translate(0, 0) scale(1); }
@@ -413,6 +475,8 @@ const userId = await getCurrentUserId();
         }
       `}</style>
 
+=======
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
     </main>
   );
 }

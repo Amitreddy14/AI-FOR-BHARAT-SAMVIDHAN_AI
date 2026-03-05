@@ -50,4 +50,8 @@ export default function VoiceInput({
       {listening ? <MicOff size={32} /> : <Mic size={32} />}
     </button>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> cf24c4d5051794bc8b2d18c83c7f4df8ea72920e
