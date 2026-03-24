@@ -178,6 +178,12 @@ export default function Home() {
 
 
       <VoiceInput onResult={handleVoice} />
+      {loading && (
+        <div className="flex items-center gap-3 bg-white/70 backdrop-blur-md px-6 py-3 rounded-full shadow-md">
+          <div className="w-5 h-5 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-sm font-semibold text-gray-700">जवाब ढूंढ रहा है... / Finding answer...</p>
+        </div>
+      )}
 <ManualApply />
 
 
