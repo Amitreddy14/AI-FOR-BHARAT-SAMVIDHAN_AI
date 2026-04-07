@@ -40,7 +40,7 @@ export default function LoginPage() {
         username: email,
         password,
       });
-      if (result.isSignedIn) router.push("/");
+      if (result.isSignedIn) router.push("/dashboard");
     } catch (err: any) {
       console.error('Verify error:', err);
       setError(err.message);
@@ -100,7 +100,7 @@ export default function LoginPage() {
 
       console.log('Sign in result:', result);
       if (result.isSignedIn) {
-        router.push("/");
+        router.push("/dashboard");
       } else if (result.nextStep.signInStep === 'CONFIRM_SIGN_UP') {
         setNeedsVerification(true);
         setError("Please enter the verification code from your email");
@@ -131,7 +131,7 @@ export default function LoginPage() {
           }
         }
       } else if (err.name === "UserAlreadyAuthenticatedException") {
-        router.push("/");
+        router.push("/dashboard");
       } else {
         setError(err.name + ": " + err.message);
       }

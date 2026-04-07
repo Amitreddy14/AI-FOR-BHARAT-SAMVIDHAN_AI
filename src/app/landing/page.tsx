@@ -7,25 +7,44 @@ type VisualMode = "light" | "dark" | "harvest";
 
 const toFixedCoord = (value: number) => Number(value.toFixed(6));
 
-const chakraSpokesLarge = Array.from({ length: 24 }, (_, i) => {
+const chakraSpokes = Array.from({ length: 24 }, (_, i) => {
   const rad = (i * 15 * Math.PI) / 180;
   return {
-    x1: toFixedCoord(100 + 10 * Math.cos(rad)),
-    y1: toFixedCoord(100 + 10 * Math.sin(rad)),
-    x2: toFixedCoord(100 + 88 * Math.cos(rad)),
-    y2: toFixedCoord(100 + 88 * Math.sin(rad)),
+    x1: toFixedCoord(100 + 14 * Math.cos(rad)),
+    y1: toFixedCoord(100 + 14 * Math.sin(rad)),
+    x2: toFixedCoord(100 + 92 * Math.cos(rad)),
+    y2: toFixedCoord(100 + 92 * Math.sin(rad)),
   };
 });
 
-const chakraSpokesSmall = Array.from({ length: 24 }, (_, i) => {
-  const rad = (i * 15 * Math.PI) / 180;
-  return {
-    x1: toFixedCoord(100 + 13 * Math.cos(rad)),
-    y1: toFixedCoord(100 + 13 * Math.sin(rad)),
-    x2: toFixedCoord(100 + 86 * Math.cos(rad)),
-    y2: toFixedCoord(100 + 86 * Math.sin(rad)),
-  };
-});
+const risingDots = [
+  { left: "3%", delay: "0s", dur: "7.8s", size: 3, color: "#f97316" },
+  { left: "6%", delay: "2.2s", dur: "9.1s", size: 2, color: "#16a34a" },
+  { left: "9%", delay: "1.1s", dur: "8.5s", size: 3, color: "#1e40af" },
+  { left: "12%", delay: "3.3s", dur: "9.8s", size: 2, color: "#ffffff" },
+  { left: "15%", delay: "0.7s", dur: "8.1s", size: 4, color: "#f97316" },
+  { left: "19%", delay: "2.8s", dur: "10.2s", size: 2, color: "#16a34a" },
+  { left: "23%", delay: "1.4s", dur: "8.9s", size: 3, color: "#1e40af" },
+  { left: "27%", delay: "3.6s", dur: "9.4s", size: 2, color: "#ffffff" },
+  { left: "31%", delay: "0.9s", dur: "7.9s", size: 3, color: "#f97316" },
+  { left: "35%", delay: "2.6s", dur: "9.6s", size: 2, color: "#16a34a" },
+  { left: "39%", delay: "1.7s", dur: "8.3s", size: 3, color: "#1e40af" },
+  { left: "43%", delay: "3.1s", dur: "10.4s", size: 2, color: "#ffffff" },
+  { left: "47%", delay: "0.4s", dur: "8.2s", size: 4, color: "#f97316" },
+  { left: "51%", delay: "2.1s", dur: "9.7s", size: 2, color: "#16a34a" },
+  { left: "55%", delay: "1.3s", dur: "8.6s", size: 3, color: "#1e40af" },
+  { left: "59%", delay: "3.8s", dur: "9.9s", size: 2, color: "#ffffff" },
+  { left: "63%", delay: "0.5s", dur: "7.7s", size: 3, color: "#f97316" },
+  { left: "67%", delay: "2.9s", dur: "10.1s", size: 2, color: "#16a34a" },
+  { left: "71%", delay: "1.6s", dur: "8.7s", size: 3, color: "#1e40af" },
+  { left: "75%", delay: "3.2s", dur: "9.2s", size: 2, color: "#ffffff" },
+  { left: "79%", delay: "0.8s", dur: "8.4s", size: 4, color: "#f97316" },
+  { left: "83%", delay: "2.4s", dur: "9.5s", size: 2, color: "#16a34a" },
+  { left: "87%", delay: "1.8s", dur: "8.8s", size: 3, color: "#1e40af" },
+  { left: "91%", delay: "3.5s", dur: "10.3s", size: 2, color: "#ffffff" },
+  { left: "95%", delay: "1.0s", dur: "8.0s", size: 3, color: "#f97316" },
+  { left: "98%", delay: "2.7s", dur: "9.3s", size: 2, color: "#16a34a" },
+];
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -146,7 +165,7 @@ export default function LandingPage() {
               Login
             </Link>
             <Link
-              href="/dashboard"
+              href="/login"
               className="px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
             >
               Dashboard →
@@ -165,7 +184,7 @@ export default function LandingPage() {
       {/* ── HERO SECTION ── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16 px-4 overflow-hidden">
 
-        {/* Base gradient */}
+        {/* Gradient Background */}
         <div
           className={`absolute inset-0 ${
             isDark
@@ -176,92 +195,107 @@ export default function LandingPage() {
           }`}
         />
 
-        {/* ── INDIAN FLAG ANIMATED BACKGROUND ── */}
+        {isDark && (
+          <>
+            <div className="absolute inset-0 aurora-night" />
+            {[
+              { left: "8%", top: "15%", delay: "0s" },
+              { left: "20%", top: "35%", delay: "1.1s" },
+              { left: "33%", top: "22%", delay: "0.6s" },
+              { left: "47%", top: "11%", delay: "1.9s" },
+              { left: "62%", top: "38%", delay: "0.4s" },
+              { left: "75%", top: "18%", delay: "1.4s" },
+              { left: "88%", top: "29%", delay: "2.2s" },
+              { left: "14%", top: "68%", delay: "1.3s" },
+              { left: "28%", top: "80%", delay: "0.2s" },
+              { left: "52%", top: "72%", delay: "1.7s" },
+              { left: "68%", top: "84%", delay: "0.9s" },
+              { left: "84%", top: "70%", delay: "2.5s" },
+            ].map((star, idx) => (
+              <span
+                key={idx}
+                className="absolute w-1.5 h-1.5 rounded-full bg-cyan-200/70 twinkle-star"
+                style={{ left: star.left, top: star.top, animationDelay: star.delay }}
+              />
+            ))}
+          </>
+        )}
+
+        {isHarvest && (
+          <>
+            <div className="absolute inset-0 harvest-glow" />
+            {[
+              { left: "10%", size: 8, delay: "0s", dur: "10s" },
+              { left: "24%", size: 10, delay: "1.2s", dur: "11s" },
+              { left: "36%", size: 7, delay: "2.4s", dur: "9s" },
+              { left: "49%", size: 9, delay: "0.8s", dur: "12s" },
+              { left: "61%", size: 11, delay: "2.1s", dur: "10s" },
+              { left: "74%", size: 8, delay: "1.6s", dur: "11s" },
+              { left: "86%", size: 9, delay: "0.4s", dur: "9s" },
+            ].map((leaf, idx) => (
+              <span
+                key={idx}
+                className="absolute -top-8 rounded-full harvest-leaf"
+                style={{
+                  left: leaf.left,
+                  width: leaf.size,
+                  height: leaf.size,
+                  animationDelay: leaf.delay,
+                  animationDuration: leaf.dur,
+                }}
+              />
+            ))}
+          </>
+        )}
+
+        {/* Animated blobs */}
+        <div className={`absolute top-20 left-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl blob-anim ${isDark ? "bg-cyan-400 opacity-20" : isHarvest ? "bg-amber-300 opacity-30" : "bg-orange-200 opacity-25"}`} />
+        <div className={`absolute top-40 right-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl blob-anim blob-delay-2 ${isDark ? "bg-indigo-500 opacity-20" : isHarvest ? "bg-orange-300 opacity-30" : "bg-green-200 opacity-25"}`} />
+        <div className={`absolute bottom-20 left-1/3 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl blob-anim blob-delay-4 ${isDark ? "bg-fuchsia-500 opacity-15" : isHarvest ? "bg-yellow-300 opacity-25" : "bg-blue-200 opacity-20"}`} />
+
+        {/* Ashoka Chakra watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className={`chakra-halo ${isDark ? "chakra-halo-dark" : "chakra-halo-light"}`} />
+          <svg
+            className={`w-[28rem] h-[28rem] md:w-[36rem] md:h-[36rem] chakra-spin ${
+              isDark ? "opacity-[0.28]" : isHarvest ? "opacity-[0.22]" : "opacity-[0.16]"
+            }`}
+            viewBox="0 0 200 200"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="100" cy="100" r="94" stroke="#1e3a8a" strokeWidth="4" />
+            <circle cx="100" cy="100" r="14" fill="#1e3a8a" />
+            {chakraSpokes.map((spoke, i) => (
+              <line
+                key={i}
+                x1={spoke.x1}
+                y1={spoke.y1}
+                x2={spoke.x2}
+                y2={spoke.y2}
+                stroke="#1e3a8a"
+                strokeWidth="2.2"
+              />
+            ))}
+          </svg>
+        </div>
+
+        {/* Tricolor rising embers */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-
-          {/* Top saffron + bottom green subtle bars */}
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400 opacity-40 tricolor-pulse" />
-          <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-green-500 via-green-600 to-green-500 opacity-40 tricolor-pulse" style={{animationDelay:'1s'}} />
-
-          {isDark && <div className="absolute inset-0 aurora-night" />}
-          {isHarvest && <div className="absolute inset-0 harvest-glow" />}
-
-          {/* Large central spinning Ashoka Chakra */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className={`chakra-halo ${isDark ? "chakra-halo-dark" : "chakra-halo-light"}`} />
-            <svg
-              className={`w-[34rem] h-[34rem] md:w-[44rem] md:h-[44rem] chakra-spin-strong ${
-                isDark ? "opacity-[0.38]" : isHarvest ? "opacity-[0.28]" : "opacity-[0.22]"
-              }`}
-              viewBox="0 0 200 200"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="100" cy="100" r="92" stroke="#1e3a8a" strokeWidth="3.6"/>
-              <circle cx="100" cy="100" r="12" fill="#1e3a8a"/>
-              {chakraSpokesLarge.map((spoke, i) => (
-                <line key={i} x1={spoke.x1} y1={spoke.y1} x2={spoke.x2} y2={spoke.y2} stroke="#1e3a8a" strokeWidth="1.9"/>
-              ))}
-            </svg>
-          </div>
-
-          {/* Floating small Ashoka Chakras at corners/edges */}
-          {[
-            {size:80,  top:'6%',  left:'4%',  delay:'0s',   dur:'20s', op:0.07},
-            {size:55,  top:'12%', left:'87%', delay:'3s',   dur:'24s', op:0.06},
-            {size:65,  top:'68%', left:'2%',  delay:'6s',   dur:'18s', op:0.07},
-            {size:45,  top:'74%', left:'89%', delay:'1.5s', dur:'26s', op:0.05},
-            {size:50,  top:'42%', left:'93%', delay:'4s',   dur:'21s', op:0.06},
-            {size:40,  top:'86%', left:'44%', delay:'2s',   dur:'23s', op:0.05},
-            {size:35,  top:'30%', left:'1%',  delay:'5s',   dur:'19s', op:0.05},
-          ].map((c,i) => (
-            <div key={i} className="absolute chakra-spin-slow" style={{width:c.size,height:c.size,top:c.top,left:c.left,animationDelay:c.delay,animationDuration:c.dur,opacity:c.op}}>
-              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="100" cy="100" r="90" stroke="#1a56db" strokeWidth="4"/>
-                <circle cx="100" cy="100" r="13" fill="#1a56db"/>
-                {chakraSpokesSmall.map((spoke, j) => (
-                  <line key={j} x1={spoke.x1} y1={spoke.y1} x2={spoke.x2} y2={spoke.y2} stroke="#1a56db" strokeWidth="2"/>
-                ))}
-              </svg>
-            </div>
-          ))}
-
-          {/* Rising particles — saffron, white, green, navy */}
-          {[
-            {left:'3%', color:'#f97316', delay:'0s', dur:'7.8s', size:3},
-            {left:'6%', color:'#16a34a', delay:'2.2s', dur:'9.1s', size:2},
-            {left:'9%', color:'#1e40af', delay:'1.1s', dur:'8.5s', size:3},
-            {left:'12%', color:'#ffffff', delay:'3.3s', dur:'9.8s', size:2},
-            {left:'15%', color:'#f97316', delay:'0.7s', dur:'8.1s', size:4},
-            {left:'19%', color:'#16a34a', delay:'2.8s', dur:'10.2s', size:2},
-            {left:'23%', color:'#1e40af', delay:'1.4s', dur:'8.9s', size:3},
-            {left:'27%', color:'#ffffff', delay:'3.6s', dur:'9.4s', size:2},
-            {left:'31%', color:'#f97316', delay:'0.9s', dur:'7.9s', size:3},
-            {left:'35%', color:'#16a34a', delay:'2.6s', dur:'9.6s', size:2},
-            {left:'39%', color:'#1e40af', delay:'1.7s', dur:'8.3s', size:3},
-            {left:'43%', color:'#ffffff', delay:'3.1s', dur:'10.4s', size:2},
-            {left:'47%', color:'#f97316', delay:'0.4s', dur:'8.2s', size:4},
-            {left:'51%', color:'#16a34a', delay:'2.1s', dur:'9.7s', size:2},
-            {left:'55%', color:'#1e40af', delay:'1.3s', dur:'8.6s', size:3},
-            {left:'59%', color:'#ffffff', delay:'3.8s', dur:'9.9s', size:2},
-            {left:'63%', color:'#f97316', delay:'0.5s', dur:'7.7s', size:3},
-            {left:'67%', color:'#16a34a', delay:'2.9s', dur:'10.1s', size:2},
-            {left:'71%', color:'#1e40af', delay:'1.6s', dur:'8.7s', size:3},
-            {left:'75%', color:'#ffffff', delay:'3.2s', dur:'9.2s', size:2},
-            {left:'79%', color:'#f97316', delay:'0.8s', dur:'8.4s', size:4},
-            {left:'83%', color:'#16a34a', delay:'2.4s', dur:'9.5s', size:2},
-            {left:'87%', color:'#1e40af', delay:'1.8s', dur:'8.8s', size:3},
-            {left:'91%', color:'#ffffff', delay:'3.5s', dur:'10.3s', size:2},
-            {left:'95%', color:'#f97316', delay:'1.0s', dur:'8.0s', size:3},
-            {left:'98%', color:'#16a34a', delay:'2.7s', dur:'9.3s', size:2},
-          ].map((p,i) => (
-            <div key={i} className="absolute bottom-0 rounded-full rising-dot" style={{
-              left:p.left, width:p.size, height:p.size,
-              backgroundColor:p.color,
-              animationDelay:p.delay, animationDuration:p.dur,
-              opacity:0.72,
-              boxShadow:`0 0 8px ${p.color}`,
-            }}/>
+          {risingDots.map((dot, idx) => (
+            <span
+              key={idx}
+              className="absolute bottom-0 rounded-full rising-dot"
+              style={{
+                left: dot.left,
+                width: dot.size,
+                height: dot.size,
+                backgroundColor: dot.color,
+                animationDelay: dot.delay,
+                animationDuration: dot.dur,
+                boxShadow: `0 0 8px ${dot.color}`,
+              }}
+            />
           ))}
         </div>
 
@@ -355,6 +389,7 @@ export default function LandingPage() {
               className="relative cursor-pointer group"
               onClick={() => setOrbPulsing(!orbPulsing)}
             >
+              {/* Outer ping rings */}
               <div
                 className={`absolute inset-0 rounded-full bg-orange-400 opacity-20 scale-150 ${
                   orbPulsing ? "animate-ping" : "group-hover:animate-ping"
@@ -362,10 +397,11 @@ export default function LandingPage() {
               />
               <div
                 className={`absolute inset-0 rounded-full bg-green-400 opacity-15 scale-125 ${
-                  orbPulsing ? "animate-ping" : ""
+                  orbPulsing ? "orb-ping-delay" : ""
                 }`}
-                style={{ animationDelay: "300ms" }}
               />
+
+              {/* Orb */}
               <div
                 className={`relative w-24 h-24 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-110
                   bg-gradient-to-br from-orange-400 via-orange-500 to-green-500
@@ -448,9 +484,9 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: "👨🌾", label: "Farmers", hindi: "किसान" },
-              { icon: "👩🎓", label: "Students", hindi: "छात्र" },
-              { icon: "👩💼", label: "Women", hindi: "महिलाएं" },
+              { icon: "👨‍🌾", label: "Farmers", hindi: "किसान" },
+              { icon: "👩‍🎓", label: "Students", hindi: "छात्र" },
+              { icon: "👩‍💼", label: "Women", hindi: "महिलाएं" },
               { icon: "♿", label: "Differently Abled", hindi: "दिव्यांग" },
             ].map((p) => (
               <div
@@ -487,7 +523,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-blue-950 text-gray-400 py-12 px-4">
+      <footer className="bg-gray-950 text-gray-400 py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-10">
 
@@ -506,7 +542,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-2 gap-8 text-sm">
               <div>
                 <p className="text-white font-semibold mb-3">Platform</p>
-                {["Voice AI", "Scheme Detection", "Application Tracking","Smart Application Filling"].map((l) => (
+                {["Voice AI", "Scheme Detection", "Application Tracking", "RTI Filing"].map((l) => (
                   <p key={l} className="mb-2 hover:text-orange-400 cursor-pointer transition-colors">
                     {l}
                   </p>
@@ -514,23 +550,23 @@ export default function LandingPage() {
               </div>
               <div>
                 <p className="text-white font-semibold mb-3">Contact</p>
-                <p className="mb-2">👤 Abhijit Ranjan </p>
+                <p className="mb-2">👤 &lt;Your Name&gt;</p>
                 <p className="mb-2">
                   📧{" "}
                   <a href="mailto:your@email.com" className="hover:text-orange-400 transition-colors">
-                    abhijitgyan121@gmail.com;
+                    &lt;your@email.com&gt;
                   </a>
                 </p>
                 <p className="mb-2">
                   📱{" "}
                   <a href="tel:+91XXXXXXXXXX" className="hover:text-orange-400 transition-colors">
-                    +91-9199778555;
+                    &lt;+91-XXXXXXXXXX&gt;
                   </a>
                 </p>
                 <p className="mb-2">
                   🔗{" "}
                   <a
-                    href="https://www.linkedin.com/in/abhijit-ranjan-3b5399288"
+                    href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-orange-400 transition-colors"
@@ -546,84 +582,107 @@ export default function LandingPage() {
           <div className="h-px bg-gradient-to-r from-orange-600 via-white/10 to-green-600 mb-6" />
 
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-xs">
-            <p>© 2026 SamvidhanAI. All rights reserved.    AI-FOR-BHARAT</p>
-            <p className="text-red-600">Made with ❤️ for Bharat · भारत के लिए</p>
+            <p>© 2025 SamvidhanAI. All rights reserved.</p>
+            <p className="text-gray-600">Made with ❤️ for Bharat · भारत के लिए</p>
           </div>
         </div>
       </footer>
 
       <style jsx>{`
-        /* Ashoka Chakra slow spin */
-        @keyframes chakraSpinSlow {
+        @keyframes blobMove {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(40px, -60px) scale(1.1); }
+          66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+        @keyframes auroraDrift {
+          0%, 100% { transform: translateX(-8%) translateY(0%); }
+          50% { transform: translateX(8%) translateY(-4%); }
+        }
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.25; transform: scale(1); }
+          50% { opacity: 0.9; transform: scale(1.25); }
+        }
+        @keyframes harvestFall {
+          0% { transform: translateY(-4vh) translateX(0) rotate(0deg); opacity: 0.75; }
+          50% { transform: translateY(48vh) translateX(10px) rotate(100deg); opacity: 0.6; }
+          100% { transform: translateY(105vh) translateX(-14px) rotate(220deg); opacity: 0; }
+        }
+        @keyframes harvestGlow {
+          0%, 100% { opacity: 0.25; }
+          50% { opacity: 0.45; }
+        }
+        @keyframes chakraSpin {
           from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
+          to { transform: rotate(360deg); }
         }
-        .chakra-spin-slow {
-          animation: chakraSpinSlow 30s linear infinite;
+        @keyframes haloPulse {
+          0%, 100% { transform: scale(0.98); opacity: 0.28; }
+          50% { transform: scale(1.02); opacity: 0.42; }
         }
-
-        .chakra-spin-strong {
-          animation: chakraSpinSlow 18s linear infinite;
-          filter: drop-shadow(0 0 22px rgba(30, 64, 175, 0.34));
-        }
-
-        .chakra-halo {
-          position: absolute;
-          width: min(70vw, 44rem);
-          aspect-ratio: 1 / 1;
-          border-radius: 9999px;
-          background: conic-gradient(#f97316 0deg 120deg, #ffffff 120deg 240deg, #16a34a 240deg 360deg);
-          filter: blur(42px);
-          animation: tricolorPulse 4.8s ease-in-out infinite;
-        }
-
-        .chakra-halo-dark {
-          opacity: 0.36;
-        }
-
-        .chakra-halo-light {
-          opacity: 0.26;
-        }
-
-        /* Rising particles from bottom */
-        @keyframes particleRise {
-          0%   { transform: translateY(0) scale(1);   opacity: 0.6; }
-          50%  { opacity: 0.8; }
-          100% { transform: translateY(-100vh) scale(0.4); opacity: 0; }
-        }
-        .particle-rise {
-          animation: particleRise 7s ease-in infinite;
-        }
-
-        .rising-dot {
-          animation: risingEmber linear infinite;
-        }
-
         @keyframes risingEmber {
-          0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.72; }
+          0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.7; }
           50% { opacity: 0.95; }
-          100% { transform: translateY(-100vh) translateX(12px) scale(0.52); opacity: 0; }
+          100% { transform: translateY(-100vh) translateX(12px) scale(0.5); opacity: 0; }
         }
-
-        /* Tricolor bar pulse */
-        @keyframes tricolorPulse {
-          0%, 100% { opacity: 0.3; }
-          50%      { opacity: 0.6; }
+        .blob-anim {
+          animation: blobMove 8s infinite ease-in-out;
         }
-        .tricolor-pulse {
-          animation: tricolorPulse 3s ease-in-out infinite;
+        .blob-delay-2 {
+          animation-delay: 2s;
+        }
+        .blob-delay-4 {
+          animation-delay: 4s;
+        }
+        .orb-ping-delay {
+          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+          animation-delay: 300ms;
         }
         .aurora-night {
           background:
-            radial-gradient(circle at 20% 30%, rgba(34, 211, 238, 0.2), transparent 45%),
-            radial-gradient(circle at 75% 25%, rgba(99, 102, 241, 0.2), transparent 42%),
-            radial-gradient(circle at 50% 75%, rgba(16, 185, 129, 0.2), transparent 48%);
+            radial-gradient(circle at 20% 30%, rgba(34, 211, 238, 0.26), transparent 45%),
+            radial-gradient(circle at 75% 25%, rgba(99, 102, 241, 0.22), transparent 42%),
+            radial-gradient(circle at 50% 75%, rgba(16, 185, 129, 0.22), transparent 48%);
+          animation: auroraDrift 10s ease-in-out infinite;
+        }
+        .twinkle-star {
+          animation: twinkle 2.6s ease-in-out infinite;
         }
         .harvest-glow {
           background:
             radial-gradient(circle at 18% 22%, rgba(245, 158, 11, 0.22), transparent 40%),
             radial-gradient(circle at 72% 30%, rgba(234, 88, 12, 0.2), transparent 42%),
             radial-gradient(circle at 48% 70%, rgba(202, 138, 4, 0.22), transparent 46%);
+          animation: harvestGlow 4s ease-in-out infinite;
+        }
+        .harvest-leaf {
+          background: linear-gradient(140deg, #f59e0b, #ea580c);
+          box-shadow: 0 0 10px rgba(245, 158, 11, 0.45);
+          animation: harvestFall 10s linear infinite;
+        }
+        .chakra-spin {
+          animation: chakraSpin 18s linear infinite;
+          filter: drop-shadow(0 0 20px rgba(30, 64, 175, 0.35));
+        }
+        .chakra-halo {
+          position: absolute;
+          width: min(70vw, 40rem);
+          aspect-ratio: 1 / 1;
+          border-radius: 9999px;
+          background: conic-gradient(#f97316 0deg 120deg, #ffffff 120deg 240deg, #16a34a 240deg 360deg);
+          filter: blur(42px);
+          animation: haloPulse 5s ease-in-out infinite;
+        }
+        .chakra-halo-dark {
+          opacity: 0.34;
+        }
+        .chakra-halo-light {
+          opacity: 0.24;
+        }
+        .rising-dot {
+          animation: risingEmber linear infinite;
+        }
+        @keyframes ping {
+          75%, 100% { transform: scale(1.25); opacity: 0; }
         }
       `}</style>
     </main>
