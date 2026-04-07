@@ -550,17 +550,17 @@ export default function LandingPage() {
               </div>
               <div>
                 <p className="text-white font-semibold mb-3">Contact</p>
-                <p className="mb-2">👤 &lt;Your Name&gt;</p>
+                <p className="mb-2">👤 Abhijit Ranjan, Amit Reddy</p>
                 <p className="mb-2">
                   📧{" "}
                   <a href="mailto:your@email.com" className="hover:text-orange-400 transition-colors">
-                    &lt;your@email.com&gt;
+                    jsammureddy140804@gmail.com & abhijitgyan121@gmail.com
                   </a>
                 </p>
                 <p className="mb-2">
                   📱{" "}
                   <a href="tel:+91XXXXXXXXXX" className="hover:text-orange-400 transition-colors">
-                    &lt;+91-XXXXXXXXXX&gt;
+                     Not Disclosed kindly contact through mail
                   </a>
                 </p>
                 <p className="mb-2">
