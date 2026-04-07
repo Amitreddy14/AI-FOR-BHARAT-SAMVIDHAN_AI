@@ -11,6 +11,8 @@
 
 </div>
 
+##  DEMO LINK:https://main.dncm4n3otq2zu.amplifyapp.com/
+
 ## Overview
 
 SamvidhanAI is a voice-first AI platform that democratizes access to government welfare schemes for India's 400M+ marginalized citizens. The system addresses the critical problem of ₹1.3 lakh crore in unclaimed welfare funds by providing an accessible, multi-language interface that guides users through scheme discovery, application, and tracking.
