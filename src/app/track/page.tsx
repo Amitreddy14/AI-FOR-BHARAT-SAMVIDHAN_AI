@@ -104,7 +104,7 @@ useEffect(() => {
         </div>
 
         <button
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/dashboard")}
           className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-1"
         >
           🏠 Home
